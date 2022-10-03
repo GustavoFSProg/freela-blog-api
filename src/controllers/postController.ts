@@ -14,23 +14,29 @@ let imagem = ''
 let resultado = ''
 
 async function registerPost(req: Request, res: Response) {
-  cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-  })
+//   cloudinary.config({
+//     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//     api_key: process.env.CLOUDINARY_API_KEY,
+//     api_secret: process.env.CLOUDINARY_API_SECRET,
+//   })
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
- cloudinary.uploader.upload(req.file?.path, function (result: any, error: any) {
-    imagem = result.secure_url
-    resultado = result
-    console.log(resultado)
-  })
+//   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+//  cloudinary.uploader.upload(req.file?.path, function (result: any, error: any) {
+//     imagem = result.secure_url
+//     resultado = result
+//     console.log(resultado)
+//   })
   try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { filename: image } = req.file
+
+    // const [name] = image.split('.')
+    const filename = image
+    
     const post = await prisma.posts.create({
       data: {
         title: req.body.title,
-        image: imagem,
+        image: filename,
         autor: req.body.autor,
         text: req.body.text,
       },
