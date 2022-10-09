@@ -22,6 +22,9 @@ async function registerComent(req: Request, res: Response) {
 async function getAllComents(req: Request, res: Response) {
   try {
     const data = await prisma.coments.findMany({
+        take: Number(4),
+      // skip: 1,
+
       orderBy: {
         createdAt: 'desc',
       },
