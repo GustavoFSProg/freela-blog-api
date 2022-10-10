@@ -10,8 +10,8 @@ dotenv.config()
 
 const prisma = new PrismaClient()
 
-let imagem = ''
-let resultado = ''
+const imagem = ''
+const resultado = ''
 
 async function registerPost(req: Request, res: Response) {
 //   cloudinary.config({
@@ -51,24 +51,19 @@ async function registerPost(req: Request, res: Response) {
 //  todo
 
 async function updatePost(req: Request, res: Response) {
- cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-  })
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
- cloudinary.uploader.upload(req.file?.path, function (result: any, error: any) {
-    imagem = result.secure_url
-    resultado = result
-    console.log(resultado)
-  })
   try {
+
+      const { filename: image } = req.file
+
+    // const [name] = image.split('.')
+    const filename = image
+    
     const post = await prisma.posts.update({
       where:{id: req.params.id},
       data: {
         title: req.body.title,
-        image: imagem,
+        image: filename,
         autor: req.body.autor,
         text: req.body.text,
       },
