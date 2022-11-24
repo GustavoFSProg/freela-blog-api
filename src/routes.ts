@@ -13,7 +13,7 @@ routes.get('/', function (req: Request, res: Response) {
 })
 
 routes.get('/all', (req: Request, res: Response) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://freela-blog.netlify.app/')
+  res.setHeader('Access-Control-Allow-Origin', '*')
   // res.setHeader('Access-Control-Allow-Origin', '*')
     
 
