@@ -8,23 +8,19 @@ dotenv.config()
 
 const { PORT } = process.env
 
-
 const api = express()
 
-// api.use(cors({
-//   origin:  'https://freela-blog.netlify.app/'
-// }))
+api.use(cors({
+  origin:  ['https://freela-blog.netlify.app/', 'https://freela-api-blog.herokuapp.com/']
+}))
 
-api.use(cors())
+// api.use(cors())
 
 api.use(express.json())
 api.use(routes)
 
-
 api.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
-
 
 api.listen(PORT, () => console.log(` 😎 Api running: ${PORT}`))
 
 export default api
- 
