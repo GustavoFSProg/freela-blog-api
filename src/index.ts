@@ -8,11 +8,15 @@ dotenv.config()
 
 const { PORT } = process.env
 
+
 const api = express()
 
+api.use(cors({
+  origin:  'http://localhost:5173'
+}))
 api.use(express.json())
-api.use(cors())
 api.use(routes)
+
 
 api.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 
