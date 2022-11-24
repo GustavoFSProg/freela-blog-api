@@ -17,13 +17,12 @@ const api = express()
 // 'https://freela-api-blog.herokuapp.com/'
  
 
-
-api.use(express.json())
-api.use(routes)
-
 api.use(cors({
   origin:  'https://freela-blog.netlify.app/',
 }))
+
+api.use(express.json())
+api.use(routes)
 api.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 
 api.listen(PORT, () => console.log(` 😎 Api running: ${PORT}`))
