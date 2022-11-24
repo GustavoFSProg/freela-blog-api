@@ -27,13 +27,7 @@ routes.get('/', function (req: Request, res: Response) {
 
 // ),
   
-  routes.get('/all', 
-cors({
-  origin: 'https://freela-blog.netlify.app/',
-    
-
-
-}), postController.getAll),
+  routes.get('/all', postController.getAll),
   // routes.get('/total', postController.getAll),
   routes.post('/register', upload.single('image'), postController.registerPost),
   // routes.put('/likes/:id', postController.updateLikes)
