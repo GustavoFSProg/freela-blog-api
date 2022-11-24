@@ -20,6 +20,7 @@ routes.get(
       'https://freela-blog.netlify.app/',
       'https://freela-api-blog.herokuapp.com/',
     ])
+    res.send({msg: "Entrou"})
     // res.setHeader('Access-Control-Allow-Origin', '*')
   },
   postController.getAll
