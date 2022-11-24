@@ -10,11 +10,11 @@ const { PORT } = process.env
 
 const api = express()
 
-api.use(cors({
-  origin:  ['https://freela-blog.netlify.app/', 'https://freela-api-blog.herokuapp.com/']
-}))
+// api.use(cors({
+//   origin:  ['https://freela-blog.netlify.app/', 'https://freela-api-blog.herokuapp.com/']
+// }))
 
-// api.use(cors())
+api.use(cors())
 
 api.use(express.json())
 api.use(routes)
