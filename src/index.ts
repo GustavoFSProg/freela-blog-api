@@ -1,4 +1,4 @@
-import express, {Request, Response} from 'express'
+import express, { Request, Response } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import routes from './routes'
@@ -10,16 +10,17 @@ const { PORT } = process.env
 
 const api = express()
 
-// api.use(cors())
+api.use(cors())
 
 // , 'https://freela-api-blog.herokuapp.com/'
 
 // 'https://freela-api-blog.herokuapp.com/'
- 
 
-api.use(cors({
-  origin:  'https://freela-blog.netlify.app/',
-}))
+// api.use(
+//   cors({
+//     origin: 'https://freela-blog.netlify.app/',
+//   })
+// )
 
 api.use(express.json())
 api.use(routes)
