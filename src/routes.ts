@@ -13,21 +13,21 @@ routes.get('/', function (req: Request, res: Response) {
   return res.status(200).send({ message: ` 😎 Api running: ` })
 })
 
-// routes.get(
-//   '/all',
-//   (req: Request, res: Response) => {
-//     res.setHeader('Access-Control-Allow-Origin', [
-//       'https://freela-blog.netlify.app/',
-//       'https://freela-api-blog.herokuapp.com/',
-//     ])
-//     // res.setHeader('Access-Control-Allow-Origin', '*')
-//   },
-//   postController.getAll
-// ),
-  routes.get('/all', cors({
-  origin: 'https://freela-blog.netlify.app/'
+routes.get(
+  '/all',
+  (req: Request, res: Response) => {
+    res.setHeader('Access-Control-Allow-Origin', [
+      'https://freela-blog.netlify.app/'
+    ])
+    // res.setHeader('Access-Control-Allow-Origin', '*')
+  },
+  postController.getAll
+),
+  
+//   routes.get('/all', cors({
+//   origin: 'https://freela-blog.netlify.app/'
 
-}), postController.getAll),
+// }), postController.getAll),
   // routes.get('/total', postController.getAll),
   routes.post('/register', upload.single('image'), postController.registerPost),
   // routes.put('/likes/:id', postController.updateLikes)
