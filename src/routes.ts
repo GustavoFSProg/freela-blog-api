@@ -19,7 +19,7 @@ routes.get('/all', (req: Request, res: Response) => {
 
 }, postController.getAll),
   
-  routes.get('/all', postController.getAll),
+  // routes.get('/all', postController.getAll),
   // routes.get('/total', postController.getAll),
   routes.post('/register', upload.single('image'), postController.registerPost),
   // routes.put('/likes/:id', postController.updateLikes)
