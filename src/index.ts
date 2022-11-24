@@ -14,6 +14,9 @@ const api = express()
 // api.use(cors({
 //   origin:  'https://freela-blog.netlify.app/'
 // }))
+
+api.use(cors())
+
 api.use(express.json())
 api.use(routes)
 
