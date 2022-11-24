@@ -10,7 +10,7 @@ const { PORT } = process.env
 
 const api = express()
 
-api.use(cors())
+// api.use(cors())
 
 // , 'https://freela-api-blog.herokuapp.com/'
 
