@@ -12,21 +12,25 @@ routes.get('/', function (req: Request, res: Response) {
   return res.status(200).send({ message: ` 😎 Api running: ` })
 })
 
-// routes.get('/all', (req: Request, res: Response) => {
-//   res.setHeader('Access-Control-Allow-Origin',['https://freela-blog.netlify.app/', 'https://freela-api-blog.herokuapp.com/'])
-//   // res.setHeader('Access-Control-Allow-Origin', '*')
-    
-
-// }, postController.getAll),
-  
-  routes.get('/all', postController.getAll),
+routes.get(
+  '/all',
+  (req: Request, res: Response) => {
+    res.setHeader('Access-Control-Allow-Origin', [
+      'https://freela-blog.netlify.app/',
+      'https://freela-api-blog.herokuapp.com/',
+    ])
+    // res.setHeader('Access-Control-Allow-Origin', '*')
+  },
+  postController.getAll
+),
+  // routes.get('/all', postController.getAll),
   // routes.get('/total', postController.getAll),
   routes.post('/register', upload.single('image'), postController.registerPost),
   // routes.put('/likes/:id', postController.updateLikes)
-// routes.post('/views/:id', postController.updateViews)
-// routes.get('/get-likes/:id', postController.viewLikes)
-// routes.get('/profile/:id', postController.getOnePost)
-routes.put('/update/:id', upload.single('image'), postController.updatePost)
+  // routes.post('/views/:id', postController.updateViews)
+  // routes.get('/get-likes/:id', postController.viewLikes)
+  // routes.get('/profile/:id', postController.getOnePost)
+  routes.put('/update/:id', upload.single('image'), postController.updatePost)
 // routes.put('/delete/:id', postController.deletePost)
 // routes.get('/total', postController.getTotal)
 
