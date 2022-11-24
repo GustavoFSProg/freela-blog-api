@@ -12,12 +12,12 @@ routes.get('/', function (req: Request, res: Response) {
   return res.status(200).send({ message: ` 😎 Api running: ` })
 })
 
-// routes.get('/all', (req: Request, res: Response) => {
-//   res.setHeader('Access-Control-Allow-Origin', '*')
-//   // res.setHeader('Access-Control-Allow-Origin', '*')
+routes.get('/all', (req: Request, res: Response) => {
+  res.setHeader('Access-Control-Allow-Origin','https://freela-blog.netlify.app/')
+  // res.setHeader('Access-Control-Allow-Origin', '*')
     
 
-// }, postController.getAll),
+}, postController.getAll),
   
   routes.get('/all', postController.getAll),
   // routes.get('/total', postController.getAll),
