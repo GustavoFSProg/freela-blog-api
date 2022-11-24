@@ -22,7 +22,7 @@ const api = express()
 
 const options: CorsOptions = {
   methods: 'GET,POST,PUT,DELETE',
-  origin: 'https://freela-blog.netlify.app//'
+  origin: 'https://freela-blog.netlify.app'
 }
 
 api.use(cors(options))
