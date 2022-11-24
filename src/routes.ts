@@ -20,10 +20,11 @@ routes.get(
       'https://freela-blog.netlify.app/',
       'https://freela-api-blog.herokuapp.com/',
     ])
-    res.send({msg: "Entrou"})
+    // res.send({ msg: "Entrou" })
+      postController.getAll
     // res.setHeader('Access-Control-Allow-Origin', '*')
-  },
-  postController.getAll
+  }
+
 ),
   
 //   routes.get('/all', cors({
