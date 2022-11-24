@@ -4,7 +4,6 @@ import md5 from 'md5'
 import jwt from 'jsonwebtoken'
 import { verifyToken } from '../utils/Token'
 
-
 const prisma = new PrismaClient()
 
 async function createUser(req: Request, res: Response) {
