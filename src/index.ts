@@ -1,4 +1,4 @@
-import express from 'express'
+import express, {Request, Response} from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import routes from './routes'
@@ -15,13 +15,15 @@ const api = express()
 // , 'https://freela-api-blog.herokuapp.com/'
 
 // 'https://freela-api-blog.herokuapp.com/'
+ 
+
+
+api.use(express.json())
+api.use(routes)
 
 api.use(cors({
   origin:  'https://freela-blog.netlify.app/',
 }))
-api.use(express.json())
-api.use(routes)
-
 api.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 
 api.listen(PORT, () => console.log(` 😎 Api running: ${PORT}`))
