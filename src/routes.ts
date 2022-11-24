@@ -30,7 +30,7 @@ routes.get('/', function (req: Request, res: Response) {
   routes.get('/all', (req: Request, res: Response) => {
     res.setHeader('Access-Control-Allow-Origin', [
       'https://freela-blog.netlify.app/',
-      // 'https://freela-api-blog.herokuapp.com/',
+      'https://freela-api-blog.herokuapp.com/',
     ])
     // res.send({ msg: "Entrou" })
     // res.setHeader('Access-Control-Allow-Origin', '*')
