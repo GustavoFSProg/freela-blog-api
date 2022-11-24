@@ -27,7 +27,7 @@ async function getAll(req: Request, res: Response) {
   try {
     const data = await prisma.users.findMany()
 
-    res.setHeader('Access-Control-Allow-Origin', 'https://freela-blog.netlify.app/')
+    // res.setHeader('Access-Control-Allow-Origin', 'https://freela-blog.netlify.app/')
 
 
     return res.status(200).json(data)
