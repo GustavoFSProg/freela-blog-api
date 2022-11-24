@@ -12,7 +12,7 @@ const { PORT } = process.env
 const api = express()
 
 api.use(cors({
-  origin:  ['http://localhost:5173', 'https://freela-blog.netlify.app/']
+  origin:  'https://freela-blog.netlify.app/'
 }))
 api.use(express.json())
 api.use(routes)
